@@ -3,6 +3,10 @@
  <img width=200px height=200px src="https://drive.google.com/uc?export=view&id=1lXh66UaJXOf67HXmoTIgMRz55YxqA6G-" alt="People"></a>
 </p>
 
+<p align="center">
+ <img src="src/assets/images/animated.gif" alt="People">
+</p>
+
 <h3 align="center">People Challenge</h3>
 
 ---
