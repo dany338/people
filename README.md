@@ -1,46 +1,167 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="https://drive.google.com/uc?export=view&id=1lXh66UaJXOf67HXmoTIgMRz55YxqA6G-" alt="People"></a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">People Challenge</h3>
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+<p align="center"> Few lines describing your project.
+  <br>
+</p>
 
-### `npm start`
+- [About](#questions)
+- [Getting Started](#getting_started)
+- [Structure](#structure)
+- [Authors](#authors)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🧐 Questions <a name = "questions"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Questions:
 
-### `npm test`
+### Pregunta 1:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Supongamos que en un repositorio GIT hiciste un commit y te olvidaste un archivo.
+Explica cómo se soluciona si hiciste push, y cómo si aún no hiciste.
+De ser posible, busca que quede solo un commit con los cambios.
 
-### `npm run build`
+```
+* NUEVAS ADICIONES AL PR
+* adicionar el comentario - confirmar commit
+* git push -f origin BRANCH-XXXXX
+* git checkout master
+* git pull --rebase // se descarga todo lo ultimo
+* git checkout BRANCH-XXXXX
+* git rebase master --interactive
+* Verificar en el Git Graph
+* git push -f origin BRANCH-XXXXX
+* git checkout master
+* git merge --squash BRANCH-XXXXX
+* dejar el ultimo comentario - git commit desde linea comandos o directamente desde el visual studio.
+* git branch -m BRANCH-XXXXX TEMP-BRANCH-XXXXX
+* git branch -m BRANCH-XXXXX
+* git branch -D BRANCH-XXXXX
+* verificar en el Git Graph que mi branch este renombrado correctamente y arriba de todo
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pregunta 2:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ¿Qué se utiliza en ReactJS para pasar datos de un padre al hijo?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+Lifting (alzamiento) para pasar datos de hijos a padres. Lifting es una técnica que consiste en pasar funciones a los hijos/as y que sean estos quienes se encarguen de ejecutarlas cuando sea necesario, provocando un cambio hacia arriba, en los padres.
+```
 
-### `npm run eject`
+### Pregunta 3:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- ¿Cuál o cuáles métodos se invocan en ReactJS antes de que el elemento se inserte
+en el DOM?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+La primera fase ocurre solo una vez por componente cuando este se crea y monta en la UI. Esta fase se divide en 4 funciones.
+constructor(props)
+Este método se ejecuta cuando se instancia un componente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+componentWillMount()
+Este método se ejecuta cuando el componente se está por renderizar.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+render()
+En este momento de la fase de montado se van a tomar las propiedades, el estado y el contexto y se va a generar la UI inicial de este componente. 
+```
 
-## Learn More
+### Pregunta 4:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Si React se centra en construir la UI, ¿puedes decirme algunos problemas con los que
+nos podemos encontrar desarrollando apps en React?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+- grandes listas de datos, - Largas listas de artículos.
+- renders inútiles, - renderizaciones desperdiciadas
+- optimización de motores de búsqueda (SEO),
+- descomposición de las capas lógica y de interfaz de usuario.
+- Al final del día, React solo resuelve los problemas de la interfaz de usuario
+- Altos tiempos de carga en aplicaciones React complejas
+- División de código
+- Grandes módulos de terceros
+- Representación del lado del servidor
+- Problemas de indexación de motores de búsqueda
+```
+
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+These instructions will get you a copy of the project up and running on your local machine for development.
+
+### Prerequisites
+
+What things you need to install the software and how to install them.
+
+```
+npm --version
+14.18.3 or superior
+```
+
+### Installing
+
+Install all dependencies:
+
+```
+npm i
+```
+
+To run the project locally:
+
+```
+npm run start
+```
+
+## ⛏️ Structure: <a name = "structure"></a>
+
+### assets
+
+- I host all the images and icons resources statically.
+
+### components
+
+- I host the shared components throughout the app like the MVP or WhiteBoard
+
+### constants
+
+- hosts all database connection parameters and LMS and endpoints
+
+### entities
+
+- hosts all typed entities that are the responses coming from the backend
+
+### hooks
+
+- it hosts all the main logic of the application that calls the redux actions and obtains, through selectors, the properties that are needed in the components and pages of the app
+
+### views
+
+- hosts all the pages grouped by the different phases of which this project is composed
+
+```
+1. Login
+2. People
+```
+
+### redux
+
+- hosts all storage logic, actions, types, reducers, react-redux-persist, initialState, store
+
+### services
+
+- hosts all the logic for calling the backend endpoints
+
+### styles
+
+- hosts all the css styles of the application
+
+### utils
+
+- hosts utility functions based on the current path of the app that help specify conditions and declarations
+
+## ✍️ Authors <a name = "authors"></a>
+
+- [@daniel.gallo](https://github.com/dany338)
