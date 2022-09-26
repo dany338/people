@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authUser, logoutUser } from '../redux/actions/login';
 import { ILoginProps } from "../entities/Login";
+import { useNavigate } from 'react-router-dom';
 
 const initialLoginProps = {
   username: '',
@@ -9,6 +10,7 @@ const initialLoginProps = {
 };
 
 const useLogin = () => {
+  // const navigate = useNavigate();
   const [ loading, setLoading ] = useState<boolean>(false);
   const [ data, setData ] = useState<ILoginProps>(initialLoginProps);
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ const useLogin = () => {
       setLoading(true);
       await dispatch<any | unknown>(authUser(data));
       setLoading(false);
+      // navigate('/dashboard');
     }
   };
 

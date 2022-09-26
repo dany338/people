@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 100%;
+  width: 30%;
   height: auto;
   min-height: 200px;
   background-color: #FFFFFF;
@@ -32,13 +31,26 @@ export const Content = styled.div`
   width: 100%;
   height: auto;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Button = styled.button<any>`
-  width: 100%;
+  width: 50%;
   height: 40px;
   background-color: #DF4759;
   border: none;
   border-radius: 5px;
   color: #FFFFFF;
+  cursor: pointer;
+
+  &:hover {
+    border-radius: 0.5rem;
+    transition: outline-offset 0.1s ease;
+    outline-offset: 4px;
+    outline: #F2C94C auto 1px;
+    cursor: pointer;
+  }
 `;

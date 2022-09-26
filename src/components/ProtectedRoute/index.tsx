@@ -9,7 +9,7 @@ interface IProtectedRouteProps {
 
 const ProtectedRoute: FC<IProtectedRouteProps> = ({
   isAllowed,
-  redirectTo = "/dashboard",
+  redirectTo = "/",
   children
 }) => {
 

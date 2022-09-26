@@ -4,7 +4,7 @@ import { Container } from './styled';
 import User from '../User';
 
 const ListUser: FC<IData> = ({
-  data,
+  users,
   loading,
 }) => {
 
@@ -23,12 +23,12 @@ const ListUser: FC<IData> = ({
           </tr>
         </thead>
         <tbody>
-          {data.length === 0 && (
+          {users.length === 0 && (
             <tr>
               <td colSpan={3}>No rows</td>
             </tr>
           )}
-          {data.map(user => <User key={user.contactId} {...user} />)}
+          {users.map(user => <User key={user.contactId} {...user} />)}
         </tbody>
       </table>
     </Container>

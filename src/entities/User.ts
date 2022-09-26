@@ -35,7 +35,7 @@ class User implements IUser {
 }
 
 export interface IData {
-  data: User[];
+  users: User[];
   loading: boolean;
 }
 

@@ -5,14 +5,15 @@ import { asyncLocalStorage } from '../utils/localStorage';
 
 export const getUsers = (): Promise<User[] | unknown> => new Promise( async (resolve, reject) => {
   try {
-    const authToken = await JSON.parse(asyncLocalStorage.getItem('authToken') || '' as string);
+    let authToken = await asyncLocalStorage.getItem('authToken');
+    authToken = JSON.parse(authToken);
     const response = await api.get(API_USERS, { headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${authToken}` }
     });
     if (response.status === 200) {
-      resolve(response.data);
+      resolve(response.data.users);
     }
   } catch (error) {
     console.log(error);

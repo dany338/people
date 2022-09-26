@@ -1,6 +1,7 @@
 import { FC } from 'react';
+import { useLocation } from 'react-router-dom';
 import { IDataResponse } from '../../entities/Login';
-import { Container, Wrapper, Menu, MenuItem } from './styled';
+import { Container, Wrapper, Menu, MenuItem, Button, MenuItemLink  } from './styled';
 
 interface INavigationProps {
   user: IDataResponse,
@@ -8,20 +9,32 @@ interface INavigationProps {
 }
 
 const Navigation: FC<INavigationProps> = ({ user, logout }) => {
+  const location = useLocation();
+  const pathname = location.pathname;
   return (
     <Container>
       <Wrapper>
-        <Menu>
-          <MenuItem to="/"></MenuItem>
+        <Menu open={false}>
+          {!user && (
+            <MenuItem>
+              <MenuItemLink to="/" active={(pathname === '/').toString()}>
+                Login
+              </MenuItemLink>
+            </MenuItem>
+          )}
+          {user && (
+            <>
+              <MenuItem>
+                <MenuItemLink to="/dashboard" active={(pathname === '/dashboard').toString()}>
+                  Dashboard
+                </MenuItemLink>
+              </MenuItem>
+              <MenuItem>
+                <Button onClick={logout}>Logout ({user.name})</Button>
+              </MenuItem>
+            </>
+          )}
         </Menu>
-        <Menu>
-          <MenuItem to="/dashboard"></MenuItem>
-        </Menu>
-        {user && (
-          <Menu>
-            <button onClick={logout}>Logout ({user.name})</button>
-          </Menu>
-        )}
       </Wrapper>
     </Container>
   );

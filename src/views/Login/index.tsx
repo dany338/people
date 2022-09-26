@@ -8,8 +8,8 @@ const Login: FC<ILoginPropsAuthLogin> = ({ username, password, authLogin, onChan
       <Card>
         <Content>
           <h4>Login</h4>
-          <input type="text" name="username" value={username} onChange={onChangeInput} /><br />
-          <input type="password" name="password" value={password} onChange={onChangeInput} /><br />
+          <input type="text" name="username" value={username} onChange={onChangeInput} required /><br />
+          <input type="password" name="password" value={password} onChange={onChangeInput} required /><br />
           <Button onClick={authLogin}>Ingresar</Button>
         </Content>
       </Card>

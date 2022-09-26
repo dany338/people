@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Card = styled.div`
-  width: 100%;
+  width: 50%;
   height: auto;
   min-height: 200px;
   background-color: #FFFFFF;

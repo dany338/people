@@ -2,18 +2,18 @@ import useEffectOnce from './useEffectOnce';
 import { useNavigate, useLocation } from "react-router-dom";
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers } from '../services/user';
+import { obtainUsers } from '../redux/actions/user';
 
 const useUser = () => {
   const [ loading, setLoading ] = useState<boolean>(false);
   const dispatch = useDispatch();
   const { user: { users } }: any = useSelector((state) => state);
   
-  const fecthUsers = useCallback(async () => {
+  const fecthUsers = async () => {
     setLoading(true);
-    await dispatch<any | unknown>(getUsers());
+    await dispatch<any | unknown>(obtainUsers());
     setLoading(false);
-  }, []);
+  };
 
   useEffectOnce( ()=> {
     fecthUsers();

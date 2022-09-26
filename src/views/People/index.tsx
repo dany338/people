@@ -9,7 +9,7 @@ const People = () => {
       <Card>
         <Content>
           <h4>Dashboard</h4>
-          <ListUser data={users} loading={loading} />
+          <ListUser users={users} loading={loading} />
         </Content>
       </Card>
     </Container>
