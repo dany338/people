@@ -1,5 +1,5 @@
 import { IDataResponse } from "../../entities/Login";
-import { AUTH_USER } from "../types/login";
+import { AUTH_USER, LOGOUT_USER } from "../types/login";
 
 interface IActionProps {
   type: string;
@@ -22,6 +22,11 @@ export const loginReducer = (state = intialState, action: IActionProps) => {
       return {
         logged: true,
         user: action.payload,
+      }
+    case LOGOUT_USER:
+      return {
+        logged: false,
+        user: null,
       }
     default:
     return state

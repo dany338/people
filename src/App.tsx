@@ -7,11 +7,11 @@ const Login = lazy(() => import('./views/Login'));
 const People = lazy(() => import('./views/People'));
 
 const App = () => {
-  const { user, data, authLogin, onChangeInput } = useLogin();
+  const { user, data, authLogin, onChangeInput, logout } = useLogin();
   return (
     <Suspense fallback={<span>Loading...</span>}>
       <BrowserRouter>
-        <Navigation />
+        <Navigation user={user} logout={logout} />
         <Routes>
           <Route index element={<Login {...data} authLogin={authLogin} onChangeInput={onChangeInput} />} />
           <Route

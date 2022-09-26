@@ -1,6 +1,13 @@
+import { FC } from 'react';
+import { IDataResponse } from '../../entities/Login';
 import { Container, Wrapper, Menu, MenuItem } from './styled';
 
-const Navigation = () => {
+interface INavigationProps {
+  user: IDataResponse,
+  logout: () => void,
+}
+
+const Navigation: FC<INavigationProps> = ({ user, logout }) => {
   return (
     <Container>
       <Wrapper>
@@ -10,6 +17,11 @@ const Navigation = () => {
         <Menu>
           <MenuItem to="/dashboard"></MenuItem>
         </Menu>
+        {user && (
+          <Menu>
+            <button onClick={logout}>Logout ({user.name})</button>
+          </Menu>
+        )}
       </Wrapper>
     </Container>
   );

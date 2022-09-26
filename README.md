@@ -127,7 +127,7 @@ npm run start
 
 ### constants
 
-- hosts all database connection parameters and LMS and endpoints
+- hosts all database connection parameters and endpoints
 
 ### entities
 

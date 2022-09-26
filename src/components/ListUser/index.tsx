@@ -16,7 +16,7 @@ const ListUser: FC<IData> = ({
     <Container>
       <table>
         <thead>
-          <tr>
+          <tr className="head">
             <th>Name</th>
             <th>Birth Date</th>
             <th>Photo</th>

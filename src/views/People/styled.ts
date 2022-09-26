@@ -27,3 +27,9 @@ export const Card = styled.div`
     cursor: pointer;
   }
 `;
+
+export const Content = styled.div`
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+`;

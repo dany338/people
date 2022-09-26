@@ -1,7 +1,6 @@
 import ListUser from '../../components/ListUser';
 import useUser from '../../hooks/useUser';
-import { Content } from '../Login/styled';
-import { Card, Container } from './styled';
+import { Card, Container, Content } from './styled';
 
 const People = () => {
   const { users, loading } = useUser();

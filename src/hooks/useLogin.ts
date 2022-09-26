@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { authUser } from '../redux/actions/login';
+import { authUser, logoutUser } from '../redux/actions/login';
 import { ILoginProps } from "../entities/Login";
 
 const initialLoginProps = {
@@ -27,7 +27,14 @@ const useLogin = () => {
     }
   };
 
-  return { loading, authLogin, user, logged, onChangeInput, data };
+  const logout = async () => {
+    setLoading(true);
+    setData(initialLoginProps);
+    await dispatch<any | unknown>(logoutUser(data));
+    setLoading(false);
+  };
+
+  return { loading, authLogin, user, logged, onChangeInput, data, logout };
 };
 
 export default useLogin;
